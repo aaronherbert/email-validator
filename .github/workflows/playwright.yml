@@ -15,6 +15,7 @@ jobs:
     - run: dotnet build
       working-directory: Playwright
     - name: Ensure browsers are installed
+      working-directory: Playwright
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
     - name: Run your tests
       working-directory: Playwright
