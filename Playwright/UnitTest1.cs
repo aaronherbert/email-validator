@@ -47,7 +47,7 @@ public class Tests : PageTest
     private async Task ValidateEmail(string email, bool isValid)
     {
         await Page.GetByLabel("Email address", new() { Exact = true }).FillAsync(email);
-
+        await Page.ScreenshotAsync(new PageScreenshotOptions() { Path= $"{email}.png" });
         await Page.GetByLabel("Continue").ClickAsync();
 
         if (isValid)
