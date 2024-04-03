@@ -20,13 +20,12 @@ public class Tests : PageTest
     }
 
     [TestCase("test@test.com")]
-    public async Task good()
+    public async Task good(string email)
     {
 
-        foreach (var email in EmailTests.Vaid)
-        {
+     
             await ValidateEmail(email, false);
-        }
+        
 
         //await Page.GetByLabel("Email address", new() { Exact = true }).FillAsync(email);
 
@@ -40,12 +39,9 @@ public class Tests : PageTest
 
     [TestCase("asd")]
     [TestCase("123")]
-    public async Task bad()
+    public async Task bad(string email)
     {
-        foreach (var email in EmailTests.Invalid)
-        {
             await ValidateEmail(email,true);
-        }       
     }
 
     private async Task ValidateEmail(string email, bool isValid)
