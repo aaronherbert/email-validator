@@ -1,0 +1,21 @@
+the reg
+
+regexes that do different things in different languages
+
+Another way is to use the System.Net.Mail.MailAddress class. To determine whether an email address is valid, pass the email address to the MailAddress.MailAddress(String) class constructor.
+
+try to login / perth glory sorry / only 
+
+test results
+
+pass arround tests
+
+valid way is to send email to it
+
+playwright
+
+	bunnings
+	rac
+	bankwest
+	ibm
+	
