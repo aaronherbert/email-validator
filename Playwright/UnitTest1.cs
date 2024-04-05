@@ -16,15 +16,15 @@ public class Tests : PageTest
     [SetUp]
     public async Task Init()
     { 
-        await  Page.GotoAsync("https://apply-now.bankwest.com.au/easytran/contact-details"); 
+        
     }
 
     [TestCase("test@test.com")]
     public async Task good(string email)
     {
 
-     
-            await ValidateEmail(email, false);
+        await Page.GotoAsync("https://apply-now.bankwest.com.au/easytran/contact-details");
+        await ValidateEmail(email, false);
         
 
         //await Page.GetByLabel("Email address", new() { Exact = true }).FillAsync(email);
@@ -41,7 +41,8 @@ public class Tests : PageTest
     [TestCase("123")]
     public async Task bad(string email)
     {
-            await ValidateEmail(email,true);
+        await Page.GotoAsync("https://apply-now.bankwest.com.au/easytran/contact-details");
+        await ValidateEmail(email,true);
     }
 
     private async Task ValidateEmail(string email, bool isValid)
