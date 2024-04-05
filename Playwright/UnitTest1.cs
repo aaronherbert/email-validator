@@ -18,7 +18,7 @@ public class Tests : PageTest
     public async Task good(string email)
     {
 
-        await Page.GotoAsync("https://apply-now.bankwest.com.au/easytran/contact-details");
+        await Page.GotoAsync("https://www.bankwest.com.au/retail-forms/customer-care");
         await ValidateEmail(email, false);
         
 
@@ -36,7 +36,7 @@ public class Tests : PageTest
     [TestCase("123")]
     public async Task bad(string email)
     {
-        await Page.GotoAsync("https://apply-now.bankwest.com.au/easytran/contact-details");
+        await Page.GotoAsync("https://www.bankwest.com.au/retail-forms/customer-care");
         await ValidateEmail(email,true);
     }
 
@@ -44,7 +44,7 @@ public class Tests : PageTest
     {
         await Page.GetByLabel("Email address", new() { Exact = true }).FillAsync(email);
         await Page.ScreenshotAsync(new PageScreenshotOptions() { Path= $"{email}.png" });
-        await Page.GetByLabel("Continue").ClickAsync();
+        await Page.GetByLabel("Submit").ClickAsync();
 
         if (isValid)
         {
