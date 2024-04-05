@@ -13,11 +13,6 @@ namespace PlaywrightTests;
 public class Tests : PageTest
 {  
 
-    [SetUp]
-    public async Task Init()
-    { 
-        
-    }
 
     [TestCase("test@test.com")]
     public async Task good(string email)
