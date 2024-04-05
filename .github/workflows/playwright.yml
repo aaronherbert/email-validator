@@ -11,10 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup dotnet
-      uses: lhotari/action-upterm@v1
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1    
     - run: dotnet build
       working-directory: Playwright
     - name: Ensure browsers are installed
