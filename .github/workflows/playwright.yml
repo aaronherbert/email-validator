@@ -14,8 +14,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1    
     - run: dotnet build
       working-directory: Playwright
     - name: Ensure browsers are installed
@@ -24,6 +22,9 @@ jobs:
     - name: Run your tests
       working-directory: Playwright
       run: dotnet test
+    - name: Setup upterm session
+      if: ${{ !cancelled() }}
+      uses: lhotari/action-upterm@v1    
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
