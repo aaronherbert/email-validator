@@ -23,7 +23,6 @@ jobs:
       working-directory: Playwright
       run: dotnet test
       uses: bibipkins/dotnet-test-reporter@v1.4.0
-    - name: report tests
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         comment-title: 'Unit Test Results'
