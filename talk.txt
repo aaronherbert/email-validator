@@ -19,3 +19,10 @@ playwright
 	bankwest
 	ibm
 	
+
+
+
+https://github.com/apache/commons-validator/blob/master/src/test/java/org/apache/commons/validator/EmailTest.java
+https://github.com/apache/commons-validator/blob/master/src/test/java/org/apache/commons/validator/routines/EmailValidatorTest.java
+https://github.com/hibernate/hibernate-validator/blob/main/engine/src/test/java/org/hibernate/validator/test/internal/constraintvalidators/hv/EmailValidatorTest.java
+https://code.iamcal.com/php/rfc822/tests/
