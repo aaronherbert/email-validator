@@ -28,8 +28,7 @@ jobs:
           -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute" \
           -- RunConfiguration.TreatNoTestsAsError=true \
           tests/**/*.csproj
-    - name: report tests
-      uses: dorny/test-reporter@v1
+    - uses: dorny/test-reporter@v1
       if: success() || failure()
       with:
         name: 🎁 Test Results
