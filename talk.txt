@@ -26,3 +26,94 @@ https://github.com/apache/commons-validator/blob/master/src/test/java/org/apache
 https://github.com/apache/commons-validator/blob/master/src/test/java/org/apache/commons/validator/routines/EmailValidatorTest.java
 https://github.com/hibernate/hibernate-validator/blob/main/engine/src/test/java/org/hibernate/validator/test/internal/constraintvalidators/hv/EmailValidatorTest.java
 https://code.iamcal.com/php/rfc822/tests/
+
+
+RFC 821 - Simple Mail Transfer Protocol (Errata)
+The original SMTP RFC
+RFC 822 - Standard for the Format of ARPA Internet Text Messages (Errata)
+The original 'email' RFC
+RFC 1035 - Domain names - implementation and specification (Errata)
+The old domains RFC
+RFC 1123 - Requirements for Internet Hosts - Application and Support (Errata)
+An update to RFC 1035
+RFC 2821 - Simple Mail Transfer Protocol (Errata)
+SMTP contains some address limits not in RFC 2822
+RFC 2822 - Internet Message Format (Errata)
+Superceeds RFC 822
+RFC 3696 - Application Techniques for Checking and Transformation of Names (Errata)
+An informative RFC that clarifies some rules (and muddies others)
+RFC 4291 - IP Version 6 Addressing Architecture (Errata)
+Some useful details about the horrors of IPv6
+RFC 5321 - Simple Mail Transfer Protocol (Errata)
+Superceeds RFC 2821 (this is the latest SMTP RFC)
+RFC 5322 - Internet Message Format (Errata)
+Superceeds RFC 2822 (this is the latest email RFC)
+RFC 5952 - A Recommendation for IPv6 Address Text Representation (Errata)
+Superceeds RFC 4291 (this is the latest IPv6 RFC)
+src: https://code.iamcal.com/php/rfc822/
+
+
+dotnet test --configuration Release \
+          --no-restore \
+   
+          --logger "trx" \
+          --collect:"XPlat Code Coverage;Format=cobertura" \
+          -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute" \
+          -- RunConfiguration.TreatNoTestsAsError=true \
+         Playwright.csproj
+
+
+dotnet test --configuration Release           --no-restore           --results-directory TestResults           --logger "trx" 
+
+
+
+
+
+
+Input String: "cat dog"
+
+In C#:
+
+csharp
+Copy code
+using System;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "cat dog";
+        string pattern = @"\b\w{3}\b";
+        Regex regex = new Regex(pattern);
+        
+        MatchCollection matches = regex.Matches(input);
+        if (matches.Count > 0)
+        {
+            foreach (Match match in matches)
+            {
+                Console.WriteLine("C#: Match found: " + match.Value);
+            }
+        }
+        else
+        {
+            Console.WriteLine("C#: No match found");
+        }
+    }
+}
+
+
+In JavaScript:
+
+javascript
+Copy code
+const input = "cat dog";
+const pattern = /\b\w{3}\b/g;
+const matches = input.match(pattern);
+
+if (matches) {
+  console.log("JavaScript: Matches found:", matches);
+} else {
+  console.log("JavaScript: No matches found");
+}
+Output in JavaScript: Matches found: [ 'cat', 'dog' ]
