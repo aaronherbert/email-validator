@@ -20,7 +20,7 @@ jobs:
       working-directory: Playwright
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
     - name: Run your tests
-             dotnet test --configuration Release \
+      run: dotnet test --configuration Release \
           --no-restore \
           --results-directory TestResults \
           --logger "trx" \
