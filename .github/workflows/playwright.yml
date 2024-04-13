@@ -33,11 +33,10 @@ jobs:
           tests/**/*.csproj
         popd
     - uses: dorny/test-reporter@v1
-      working-directory: Playwright
       if: success() || failure()
       with:
         name: 🎁 Test Results
-        path: './TestResults/*.trx'
+        path: './Playwright/TestResults/*.trx'
         reporter: dotnet-trx
         fail-on-error: true
     - name: Setup upterm session
