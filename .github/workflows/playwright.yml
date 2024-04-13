@@ -20,9 +20,9 @@ jobs:
       working-directory: Playwright
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
     - name: Run your tests
-      working-directory: Playwright
-       shell: bash
+      shell: bash
       run: |
+        pushd 'Playwright'
         dotnet test --configuration Release \
           --no-restore \
           --results-directory TestResults \
@@ -31,7 +31,9 @@ jobs:
           -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute" \
           -- RunConfiguration.TreatNoTestsAsError=true \
           tests/**/*.csproj
+        popd
     - uses: dorny/test-reporter@v1
+      working-directory: Playwright
       if: success() || failure()
       with:
         name: 🎁 Test Results
