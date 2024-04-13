@@ -3,11 +3,18 @@ on:
   workflow_dispatch :
   push:
     branches: [ main ]
-    
+      statuses: write
+  checks: write
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+      checks: write
+      contents: write
+      pull-requests: write
+      actions: write  # <-- this was missing in your permissions
     steps:
     - uses: actions/checkout@v4
     - name: Setup dotnet
