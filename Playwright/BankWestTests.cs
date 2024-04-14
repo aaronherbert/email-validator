@@ -6,45 +6,10 @@ namespace PlaywrightTests;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]
+[Category("BankWest")]
 public class BankWestTests : PageTest
-{
-
-    [SetUp]
-    public async Task Setup()
-    {
-
-
-        //await Context.Tracing.StartAsync(new()
-        //{
-        //    Title = TestContext.CurrentContext.Test.ClassName + "." + TestContext.CurrentContext.Test.Name,
-        //    Screenshots = true,
-        //    Snapshots = true,
-        //    Sources = true
-        //});
-    }
-
-    [TearDown]
-    public async Task TearDown()
-    {
-        //var fileName = $"{TestContext.CurrentContext.Test.ClassName}.{TestContext.CurrentContext.Test.Name}.zip";
-        //foreach (var c in Path.GetInvalidFileNameChars())
-        //{
-        //    fileName = fileName.Replace(c, '-');
-        //}
-
-        // This will produce e.g.:
-        // bin/Debug/net8.0/playwright-traces/PlaywrightTests.Tests.Test1.zip
-        //await Context.Tracing.StopAsync(new()
-        //{
-        //    Path = Path.Combine(
-        //        TestContext.CurrentContext.WorkDirectory,
-        //        "playwright-traces",
-        //          fileName
-        //    )
-        //});
-    }
-
-    [Test, TestCaseSource(typeof(TestData), "BadEmails")]
+{ 
+    [Test, TestCaseSource(typeof(TestData), "InvalidEmails")]
     public async Task good(string email)
     {
 

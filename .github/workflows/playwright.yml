@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-  test:
+  build:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     permissions:
@@ -12,7 +12,7 @@ jobs:
       checks: write
       contents: write
       pull-requests: write
-      actions: write  # <-- this was missing in your permissions
+      actions: write
     steps:
     - uses: actions/checkout@v4
     - name: Setup dotnet
@@ -24,26 +24,26 @@ jobs:
     - name: Ensure browsers are installed
       working-directory: Playwright
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
-    - name: Run your tests
-      shell: bash
-      run: |
-        pushd 'Playwright'
-        dotnet test --configuration Release \
-          --no-restore \
-          --results-directory TestResults \
-          --logger "trx" \
-          --collect:"XPlat Code Coverage;Format=cobertura" \
-          -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.ExcludeByAttribute="Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute" \
-          -- RunConfiguration.TreatNoTestsAsError=true \
-          tests/**/*.csproj
-        popd
-    - uses: dorny/test-reporter@v1
-      if: success() || failure()
-      with:
-        name: 🎁 Test Results
-        path: './Playwright/TestResults/*.trx'
-        reporter: dotnet-trx
-        fail-on-error: true
-    - name: Setup upterm session
-      if: ${{ !cancelled() }}
-      uses: lhotari/action-upterm@v1    
+    
+   
+
+  Microsoft:
+    neesds: build
+    timeout-minutes: 60
+    uses: actions/playwright"
+    with: 
+      category: Microsoft
+
+   Bunnings:
+    neesds: build
+    timeout-minutes: 60
+    uses: actions/playwright"
+    with: 
+      category: Bunnings
+
+   BankWest:
+    neesds: build
+    timeout-minutes: 60
+    uses: actions/playwright"
+    with: 
+      category: BankWest
