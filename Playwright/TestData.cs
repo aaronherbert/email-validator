@@ -17,7 +17,7 @@ public static class TestData
         yield return new TestCaseData("j.s@server1.proseware.com");
         yield return new TestCaseData("js@contoso.中国");
         yield return new TestCaseData("js#internal@proseware.com");
-        yield return new TestCaseData("j_9@[129.126.118.1;");
+        yield return new TestCaseData("j_9@[129.126.118.1]");
         yield return new TestCaseData("david.jones@proseware.com");
         yield return new TestCaseData("d.j@server1.proseware.com");
         yield return new TestCaseData("jones@ms1.proseware.com");
