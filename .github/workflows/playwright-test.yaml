@@ -27,7 +27,7 @@ jobs:
           tests/**/*.csproj
         popd
     - uses: dorny/test-reporter@v1
-      working-directory: Playwright
+   
       if: success() || failure()
       with:
         name: 🎁 Test Results
