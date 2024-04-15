@@ -26,18 +26,18 @@ jobs:
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
   Microsoft:
     needs: build
-    uses: aaronherbert/email-validator/.github/workflows/playwright-test.yaml
+    uses: aaronherbert/email-validator/.github/workflows/playwright-test.yaml@main
     with: 
       category: Microsoft
 
   Bunnings:
     needs: build
-    uses: aaronherbert/email-validator/.github/workflows/playwright-test.yaml
+    uses: aaronherbert/email-validator/.github/workflows/playwright-test.yaml@main
     with: 
       category: Bunnings
 
   BankWest:
     needs: build
-    uses: aaronherbert/email-validator/.github/workflows/playwright-test.yaml
+    uses: aaronherbert/email-validator/.github/workflows/playwright-test.yaml@main
     with: 
       category: BankWest
