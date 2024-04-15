@@ -6,9 +6,13 @@ on:
       category:
         description: 'Category name'
         required: true
+
 jobs:
   test:
-    - name: Run your tests
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run your tests - ${{ inputs.category }}
       shell: bash
       run: |
         pushd 'Playwright'
@@ -23,10 +27,10 @@ jobs:
           tests/**/*.csproj
         popd
     - uses: dorny/test-reporter@v1
+      working-directory: Playwright
       if: success() || failure()
       with:
         name: 🎁 Test Results
         path: './Playwright/TestResults/${{ inputs.category }}/*.trx'
         reporter: dotnet-trx
-        fail-on-error: false       
-   
+        fail-on-error: false
