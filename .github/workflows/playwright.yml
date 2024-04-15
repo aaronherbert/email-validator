@@ -27,8 +27,10 @@ jobs:
   Microsoft:
     needs: build
     uses: aaronherbert/email-validator/.github/workflows/playwright-test.yaml@main
+          --results-directory TestResults\Microsoft \
     with: 
       category: Microsoft
+        path: './Playwright/TestResults/Microsoft/*.trx'
 
   Bunnings:
     needs: build
