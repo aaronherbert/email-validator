@@ -1,4 +1,5 @@
 name: "run playwright tests"
+description: "run playwright tests"
 
 inputs:
   category:
