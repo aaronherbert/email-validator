@@ -10,32 +10,31 @@ namespace PlaywrightTests;
 public class MicrosoftTests : PageTest
 { 
     [Test, TestCaseSource(typeof(TestData), "InvalidEmails")]
-    public async Task good(string email)
+    public async Task Invalid(string email)
     {
         await Page.GotoAsync("https://signup.live.com/signup");
         await ValidateEmail(email, false);
 }
 
     [Test, TestCaseSource(typeof(TestData), "ValidEmails")]
-    public async Task bad(string email)
+    public async Task Valid(string email)
     {
-        await Page.GotoAsync("https://www.bankwest.com.au/retail-forms/customer-care");
+        await Page.GotoAsync("https://signup.live.com/signup");
         await ValidateEmail(email, true);
     }
 
     private async Task ValidateEmail(string email, bool isValid)
     {
         await Page.GetByPlaceholder("someone@example.com", new() { Exact = true }).FillAsync(email);
-        await Page.ScreenshotAsync(new PageScreenshotOptions() { Path = $"{email}.png" });
-        await Page.GetByLabel("Submit").ClickAsync();
+        await Page.GetByText("Next").ClickAsync();
 
         if (isValid)
         {
-            await Expect(Page.GetByText("Enter the email address in the format someone@example.com.", new() { Exact = false })).ToBeVisibleAsync(new LocatorAssertionsToBeVisibleOptions { Timeout = 3000 });
+            await Expect(Page.GetByText("Enter the email address in the format someone@example.com.", new() { Exact = false })).Not.ToBeVisibleAsync(new LocatorAssertionsToBeVisibleOptions { Timeout = 3000 });
         }
         else
         {
-            await Expect(Page.GetByText("Enter the email address in the format someone@example.com.", new() { Exact = false })).Not.ToBeVisibleAsync(new LocatorAssertionsToBeVisibleOptions { Timeout = 3000 });
+            await Expect(Page.GetByText("Enter the email address in the format someone@example.com.", new() { Exact = false })).ToBeVisibleAsync(new LocatorAssertionsToBeVisibleOptions { Timeout = 3000 });
         }
     }
 }
