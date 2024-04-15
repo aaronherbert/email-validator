@@ -3,6 +3,7 @@ description: "run playwright tests"
 
 inputs:
   category:
+    description: 'Category name'
     required: true
 runs:
   steps:
