@@ -24,26 +24,21 @@ jobs:
     - name: Ensure browsers are installed
       working-directory: Playwright
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
-    
-   
-
   Microsoft:
-    neesds: build
-    timeout-minutes: 60
-    uses: actions/playwright"
+    needs: build
+    
+    uses: ./.github/actions/playwright"
     with: 
       category: Microsoft
 
-   Bunnings:
-    neesds: build
-    timeout-minutes: 60
-    uses: actions/playwright"
+  Bunnings:
+    needs: build
+    uses: ./.github/actions/playwright"
     with: 
       category: Bunnings
 
-   BankWest:
-    neesds: build
-    timeout-minutes: 60
-    uses: actions/playwright"
+  BankWest:
+    needs: build
+    uses: ./.github/actions/playwright"
     with: 
       category: BankWest
