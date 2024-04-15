@@ -1,13 +1,13 @@
 name: "run playwright tests"
 description: "run playwright tests"
 on:
-  workflow_call:
-inputs:
-  category:
-    description: 'Category name'
-    required: true
-runs:
-  steps:
+  workflow_call: 
+    inputs:
+      category:
+        description: 'Category name'
+        required: true
+jobs:
+  test:
     - name: Run your tests
       shell: bash
       run: |
