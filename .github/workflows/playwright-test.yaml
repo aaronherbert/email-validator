@@ -1,6 +1,7 @@
 name: "run playwright tests"
 description: "run playwright tests"
-
+on:
+  workflow_call:
 inputs:
   category:
     description: 'Category name'
