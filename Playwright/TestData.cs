@@ -10,7 +10,7 @@ public static class TestData
         yield return new TestCaseData("test@Bücher.ch");
         yield return new TestCaseData("test@google.com.au");
         yield return new TestCaseData("test@blah.museum");
-        yield return new TestCaseData("test@hbf.com.au");
+        yield return new TestCaseData("test@yahoo.com.au");
         yield return new TestCaseData("js@proseware.com9");
         yield return new TestCaseData("j.s@server1.proseware.com");
         yield return new TestCaseData("js@contoso.中国");
@@ -22,7 +22,7 @@ public static class TestData
         yield return new TestCaseData("jones@ms1.proseware.com");
         yield return new TestCaseData("test@1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.1234567890.com");
         yield return new TestCaseData("\"joe*\"@apache.org");
-        yield return new TestCaseData("szffakylcxnsqzhsesacplocmhnkslqvjwjpxqeohyxkvicqhgzpuisglcttwntq@hbf.com.au");
+        yield return new TestCaseData("szffakylcxnsqzhsesacplocmhnkslqvjwjpxqeohyxkvicqhgzpuisglcttwntq@asd.com.au");
     }
     public static IEnumerable<TestCaseData> InvalidEmails()
     {
@@ -31,15 +31,12 @@ public static class TestData
         yield return new TestCaseData("hello_example.com");
         yield return new TestCaseData("1234567890123456789012345678901234567890123456789012345678901234+x@example.com");
         yield return new TestCaseData("test@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg.ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg.ggggggggggggggggggggggggggggggggggggggggggggggggggggggggg.com.au");
-
         yield return new TestCaseData("1j.@server1.proseware.com");
         yield return new TestCaseData("1j..s@proseware.com");
         yield return new TestCaseData("1js*@proseware.com");
         yield return new TestCaseData("1js@proseware..com");
-
         yield return new TestCaseData("jsmith @apache.");
         yield return new TestCaseData("jsmith@apache.c");
-        //yield return new TestCaseData("someone@yahoo.mu-seum"); //TODO: this test currently fails
         //email with dash
         yield return new TestCaseData("andy -noble @data-workshop.-com");
         yield return new TestCaseData("andy -noble @data-workshop.c-om");
