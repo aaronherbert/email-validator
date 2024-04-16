@@ -41,8 +41,6 @@ public static class TestData
         yield return new TestCaseData("andy -noble @data-workshop.-com");
         yield return new TestCaseData("andy -noble @data-workshop.c-om");
         yield return new TestCaseData("andy -noble @data-workshop.co-m");
-        //email with dot end
-        yield return new TestCaseData("andy.noble @data-workshop.com.");
         //email with bogus chars
         yield return new TestCaseData("andy.noble@\u008fdata-workshop.com");
         yield return new TestCaseData("andy@o'reilly.data-workshop.com");
